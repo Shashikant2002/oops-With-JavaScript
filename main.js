@@ -24,18 +24,63 @@
 // console.log(person2)
 // console.log(person2.hasOwnProperty('name'))
 
+function Human(ls) {
+  this.lifeSpan = ls;
+}
+Human.prototype.breath = function () {
+  console.log("Breathing...........");
+};
+
+let human1 = new Human(100);
+let human2 = new Human(200);
+
+// console.log(human1);
+// console.log(human2);
+// human1.breath();
+// human2.breath();
+
+
+
+
+
+
 function Student(fn, ln, age) {
   this.firstName = fn;
   this.lastName = ln;
   this.age = age;
 }
-
 Student.prototype.fullName = function () {
-    return this.firstName + " " + this.lastName;
-  };
+  return this.firstName + " " + this.lastName;
+};
+
+Student.prototype.__proto__ = Object.create(Human.prototype);
 
 let student1 = new Student("rahul", "kumar", "18");
 let student2 = new Student("Shashikant", "Prajapti", "20");
 
+console.log(student1);
+console.log(student2);
+student1.breath();
+student2.breath();
 console.log(student1.fullName());
 console.log(student2.fullName());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
